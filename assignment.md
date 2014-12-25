@@ -1,4 +1,27 @@
-# Assignent Part 1:  Data Detective
+# Assignent Part 1:  Becoming friendly with matplotlib.pyplot as plt
+The first part of of todays assignments is aimed to get your comfortable with using the somewhat wonky matplolib functions and methods.  
+
+### Chart 1:
+Plotting the monthly trend of arrests.
+
+* Load the `chitown_crime_arrests_vs_reports.csv` into a pandas DataFrame
+* Take the 'Arrests', and 'MonthStr' columns out by using the `df['col'].values` function
+* Create a barplot with the height of the bar is the number of arrests for each month
+* Now customize your x-ticks to be the month names, and not just intergers
+* Make the plot bigger, make it something like 13 x 8 (or any fibonacci ratio)
+* Make the Y-axis height to range from 0 to 10000 instead of 9000
+* Align the xticks to be in the center of each bar
+* If that alignment make your graph look a bit wonky, try adjusting the xlim to fix it
+
+When you are done Chart 1 should look something like this.  
+![](images/barplot-of-arrests-with-month-names.png)
+
+
+<br>
+<br>
+<br>
+
+# Assignent Part 2:  Data Detective
 *Part one assignment should take you from 2-3 hours.*
 
 Today you will be investigating a decade of crime that took place in Chicago from 2002-2013.  http://www.pbs.org/wgbh/pages/frontline/interrupters/#the-interrupters-(graphic-language)
@@ -15,7 +38,7 @@ Step 5:  Plot/visualize the trend of the data the best way you see fit.   Be pre
 
 ### Chart 2: Tis the season for crimes.
 
-Use the `chitown_crime_monthly.csv`, and create a plot that will let us see if there is any seasonal affect on crime.
+Use the `chitown_crime_monthly.csv`, and create a plot that will let us see if there is any seasonal affect on crime. *[~45min]*
 
 Step 1:  Load the `chitown_crime_monthly.csv` data into pandas
 Step 2:  Convert the Date column to a datetime object
@@ -28,7 +51,7 @@ STEP 8:  Show me if ther is any seasonality in the crime in Chitown...
 
 <br>
 ### Extra Credit: Heatmap of fires.
-
+*[~30-60 min]*
 Step 0:  Load in seaborn as sns
 Step 1:  Load the `chitown_crime_monthly.csv` data into pandas
 Step 2:  Convert the Date column to a datetime object
@@ -44,7 +67,8 @@ Step 8:  Change the color to one that would best convey your message and subject
 <br>
 <br>
 <br>
-##Part 2: Coloring coding crime
+
+#Part 3: Coloring coding crime
 
 In the previous part we have looked at crimes over a number of years, here we
 will focus on a month's worth of crimes. We will visualize the location of the
