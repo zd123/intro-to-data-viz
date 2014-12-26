@@ -21,6 +21,23 @@ When you are done Chart 1 should look something like this.
 <br>
 <br>
 
+### Chart 2:  Distributions of populations and total crimes
+Plot a histogram of the distribution of population, and plot a histogram of the distribution of total crime, do not have them overlay.
+
+
+* Load in the `total-crime-and-population.csv` into a pandas df.
+* Use the `fig, (plt1, plt2) = plt.subplots(ncols=2)` to setup two plots.
+* Use `plt1.hist()` to your first histogram.
+* Set the title that makes sense for that histogram.
+* Name your x-axis that makes sense to the reader.
+* Then... do it again for your second histogram.  
+
+![](images/chart2-pop-crime-histogram.png)
+<br>
+
+<br>
+<br>
+<br>
 # Assignent Part 2:  Data Detective
 *Part one assignment should take you from 2-3 hours.*
 
