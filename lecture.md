@@ -92,7 +92,7 @@ pie = np.linspace(0, 2 * np.pi, 100)
 sine = np.sin(pie)
 cosine = np.cos(pie)
 
-# Think of your figure as the canvas, and the ax0, ax1 as their own charts.
+# Think of your figure as the page, and ax0, ax1 are just like plt objects.
 fig, (ax0, ax1) = plt.subplots(ncols = 2, figsize=(13,8))
 # ax0 is now a subplot object, and have annoying different commands for it.
 
