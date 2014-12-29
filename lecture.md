@@ -108,6 +108,37 @@ plt.show();
 ![](images/figure_1.png)
 ---
 <br>
+### Lots and lots of subplots.
+Subplots are very tricky, so here is another trick on how to create a lot of subplots with a loop.
+```python
+
+# First decide on how many plots you would like, and what in layout [ Rows by Cols]
+rowz = 2
+colz = 4
+
+# Now, use the plt.subplots() and pass in the nrows and ncols arguments.
+fig, ax = plt.subplots(nrows= rowz, ncols=colz, figsize=(13,8))
+
+
+counter = 0
+# These are the names of our columns
+cols_to_plot = ['COL-0', 'ONE', '2', 'thr33', 'FOR', 'cinco', 'Six on the beach', 'Se7en', 'Ocho-cinco']
+
+# Here is a simple color pallette we will use to color each plot
+colorz = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'red', 'black']
+
+for r in range(rowz):
+    for c in range(colz):
+        # the 'ax' object is a 2d numpy array with values that are subplots.
+        # therefore to ax[0,0] is the first subplot in our subplot ax object.
+        ax[r,c].plot( df[cols_to_plot[counter]], c=colorz[counter])
+        ax[r,c].set_title( cols_to_plot[counter] )
+        counter += 1
+```
+![](images/subplot-example.png)
+---
+
+<br>
 #### Customizing tick labels.
 ```python
 # CUSTOMIZE AXIS TICKS AND SIZE

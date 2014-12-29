@@ -1,11 +1,10 @@
 # Assignent Part 1:  Becoming friendly with matplotlib.pyplot as plt
 The first part of of todays assignments is aimed to get your comfortable with using the somewhat wonky matplolib functions and methods.  
 
-### Chart 1:
-Plotting the monthly trend of arrests.
+### Chart 1: Plotting the monthly trend of arrests.
 
 * Load the `chitown_crime_arrests_vs_reports.csv` into a pandas DataFrame
-* Take the 'Arrests', and 'MonthStr' columns out by using the `df['col'].values` function
+* Take the 'Arrests', and 'MonthStr' columns out by using the `df['column name '].values` function
 * Create a barplot with the height of the bar is the number of arrests for each month
 * Now customize your x-ticks to be the month names, and not just intergers
 * Make the plot bigger, make it something like 13 x 8 (or any fibonacci ratio)
@@ -15,13 +14,68 @@ Plotting the monthly trend of arrests.
 
 When you are done Chart 1 should look something like this.  
 ![](images/barplot-of-arrests-with-month-names.png)
-
-
-<br>
+---
 <br>
 <br>
 
-### Chart 2:  Distributions of populations and total crimes
+### Chart 2:  Plotting population over time.  
+This is something just to get you warmed up, it can be done with one line of code.  Use the `50year-national-crime-population-totals.csv` data file, and plot a line chart where the x-axis is the year, and the y-axis is the national population.  
+ * Make sure to give your chart a title, and label the x/y axes.
+ * Change the y-axis to start at 0, instead of the population min.
+ * Also change the x-axis in a way that doesn't look confusing to you.
+ * Tweak the chart as you see fit, just thinkg 'What would Tufte do...'
+Once done with creating that line chart, do it again, but as a bar chart.
+![](images/population-line-graph.png)
+![](images/population-bar-chart.png)
+---
+
+### Chart 3: Plotting total crime and population.
+
+Now, plot both the population and total crime from 1960 to 2012 on one chart, with two different y-axis.  There is many ways to do this, I recommend using pandas plotting, with a `secondary_y='your other y'` as an argument in the `df.plot()` function.
+![](images/pop-and-crime-pandas.png)
+
+However, if you would like to have more control over your plotting, you can create a matplotlib subplot with a twin-x-axis.
+
+* *This is optional, if you get stuck after 20min keep going. *
+* Create just one subplot `fig, ax = plt.subplots()
+`
+* Duplicate the subplot ax x-axis by using `ax2 = ax.twinx()`
+* Use treat `ax, and ax2` as you would you `plt`.
+* So... `ax.plot( Population data goes here )`
+* To customize the way your y-ticks look, first we need to get the tick label information by using `tick_locs = ax.get_yticks()`.  This returns a list of the locations of the ticks that will be plotted.
+* Instead of y-ticks being a very hard to read long number, or an annoying scientific notation which only scientists understand, reformat the returned list to be in hundreds of millions ` tick_text = [ x / 1000000.0 for x in tick_locs ]`
+* Set our new formatted tick labels as the y-tick lables via `ax.set_yticklabels(tick_text, color='b')`
+* Set the location of the legend so the next one doesn't fall ontop of it
+`ax.legend(loc='upper left')`
+
+* Now do everything the same for the total_crime column.  This time on `ax2`.
+
+This is what it can look like.
+
+![](images/pop-and-crime.png)
+---
+<br>
+<br>
+
+### Chart 4: Which year had the highest rate of crime...
+Using what you have practiced so far, create a bar chart of the RATE of crime in the US from 1960 to now. Your chart could look something like this.  
+![](images/crime-rate-in-us.png)
+---
+<br>
+<br>
+
+
+### Chart 5: Plot all the trends of crimes using subplots.
+* Create a subplot with 2 rows and 4 columns
+* Create a list of the columns you want to plot. Here are the columns: `[ u'Murder and nonnegligent Manslaughter', u'Forcible rape', u'Robbery', u'Aggravated assault', u'Property crime total', u'Burglary', u'Larceny-theft', u'Motor vehicle theft']`
+* Use a double for loop and a counter to loop through the number of rows, then number of cols, then plot the correspond column in your data frame. **See the lecture.md file for an example of how this works.**
+
+Your final figure should look something like this.
+![](images/subplot-of-crimes.png)
+---
+<br>
+
+### Chart 6: Distributions of populations and total crimes
 Plot a histogram of the distribution of population, and plot a histogram of the distribution of total crime, do not have them overlay.
 
 
@@ -33,41 +87,10 @@ Plot a histogram of the distribution of population, and plot a histogram of the 
 * Then... do it again for your second histogram.  
 
 ![](images/chart2-pop-crime-histogram.png)
-<br>
-
-<br>
+---
 <br>
 <br>
-# Assignent Part 2:  Data Detective
-*Part one assignment should take you from 2-3 hours.*
-
-Today you will be investigating a decade of crime that took place in Chicago from 2002-2013.  http://www.pbs.org/wgbh/pages/frontline/interrupters/#the-interrupters-(graphic-language)
-### Chart 1:  Is crime rising or falling in Chicago?
-Visually show me if the crime rates are rising or falling each year. *[~30min]*
-
-Step 1:  Load the `chitown_crime_yearly.csv` data into pandas  
-Step 2:  Convert the Date column to a datetime object  
-Step 3:  Set the Date column to the index  
-Step 4:  Use pandas `resample('A', how='<think about it>')` function to aggregate by year  
-Step 5:  Plot/visualize the trend of the data the best way you see fit.   Be prepared to explain which visualization technique you chose and why.
-
-<br>
-
-### Chart 2: Tis the season for crimes.
-
-Use the `chitown_crime_monthly.csv`, and create a plot that will let us see if there is any seasonal affect on crime. *[~45min]*
-
-Step 1:  Load the `chitown_crime_monthly.csv` data into pandas
-Step 2:  Convert the Date column to a datetime object
-Step 3:  Set the Date column to the index  
-STEP 4: Make a column that is just the year interger [2002, ..., 2013] YYYY
-STEP 5: Make a column that is just the number of the month [1, ..., 12]
-STEP 6: Make a column that is just the name of the month [Jan, Feb...] *Step 6 is not imperative and somewhat tricky.  If you dont get it in 10min just move on.*
-STEP 7: Groupby that month column you made, and sum the counts.
-STEP 8:  Show me if ther is any seasonality in the crime in Chitown...
-
-<br>
-### Extra Credit: Heatmap of fires.
+### Extra Credit: Heatmap of Arson.  
 *[~30-60 min]*
 Step 0:  Load in seaborn as sns
 Step 1:  Load the `chitown_crime_monthly.csv` data into pandas
@@ -80,12 +103,10 @@ Step 7:  Fix the yticks so they are no longer rotated -90 deg.
 Step 8:  Change the color to one that would best convey your message and subject.
 
 ![heat map](images/heatmap.png)
-
+---
 <br>
 <br>
-<br>
-
-#Part 3: Coloring coding crime
+# Extra Credit 2: Coloring coding crime with Plot.ly
 
 In the previous part we have looked at crimes over a number of years, here we
 will focus on a month's worth of crimes. We will visualize the location of the
