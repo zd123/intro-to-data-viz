@@ -26,7 +26,6 @@ This is something just to get you warmed up, it can be done with one line of cod
  * Tweak the chart as you see fit, just thinkg 'What would Tufte do...'
 Once done with creating that line chart, do it again, but as a bar chart.
 ![](images/population-line-graph.png)
-![](images/population-bar-chart.png)
 ---
 
 ### Chart 3: Plotting total crime and population.
@@ -90,14 +89,25 @@ Plot a histogram of the distribution of population, and plot a histogram of the 
 ---
 <br>
 <br>
+
+### Scatter plot of crime locations.
+* Load the `chitown_crime_only_2013.csv` into a pandas dataframe.
+* Create one subplot for each type of crime (Primary Type col). *There is like 1,000 ways to do this. I like setting the index to the Primary Type*
+* Use the X and Y coordinate columns as the X and Y coordinates for your scatterplot.
+* Try setting the alpha very very low.  
+* If you get fancy, your graph can look like this...
+* ![](images/crime-scatter-subplots.png)
+
+<br>
+<br>
 ### Extra Credit: Heatmap of Arson.  
 *[~30-60 min]*
 Step 0:  Load in seaborn as sns
 Step 1:  Load the `chitown_crime_monthly.csv` data into pandas
 Step 2:  Convert the Date column to a datetime object
 Step 3:  Set the Date column to the index  
-Step 4: Keep only data in the Primary Type column that is ARSON.
-Step 5: Make a pivot table so the rows are the years, and the columns are the months, and the cell values are the how many arson fires there were that month.
+Step 4:  Keep only data in the Primary Type column that is ARSON.
+Step 5:  Make a pivot table so the rows are the years, and the columns are the months, and the cell values are the how many arson fires there were that month.
 Step 6:  Use the `sns.heatmap()` function to plot the heat map.
 Step 7:  Fix the yticks so they are no longer rotated -90 deg.
 Step 8:  Change the color to one that would best convey your message and subject.

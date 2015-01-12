@@ -176,6 +176,7 @@ data = [1,2,3,5,6,7,8,9,10,10,9,8]
 # And set the cmap to the colors you would like the data to reflect
 plt.scatter(x=range(len(data)), y=data, c=data, cmap=cm.hot, linewidths=0, s=200);
 ```
+
 ![](images/colormapping.png)
 ![](images/colormaps.jpg)
 ---
